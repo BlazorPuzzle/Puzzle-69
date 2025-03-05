@@ -1,0 +1,36 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+<PageTitle>Home</PageTitle>
+
+<h1>Puzzle 69 - A QuickGrid of All Sorts</h1>
+
+<p>We've got a grid of some of our first episodes here and we'd like to add some sorting to it.</p>
+
+<p>The title and episode number columns already have a sort on them and they work great sorting by strings and by numbers.  What about the published date column?  How do we add sorting capabilities to that column so that it sorts dates properly? </p>
+
+
+@* Add a quickgrid of the episode list *@
+<QuickGrid Items="@TheList" >
+	<PropertyColumn Property="@(e => e.Title)" Title="Title" Sortable="true" />
+	<PropertyColumn Property="@(e => e.Number)" Title="Episode #" Sortable="true"/>
+	<PropertyColumn Property="@(e => e.PublishDate.ToString("d"))" Title="Publish Date" />
+	<TemplateColumn Title="Image">
+		<ChildContent>
+			<img height="50" src="https://blazorpuzzle.com/images/@context.Number.ToString("00")-title.jpg"/>
+		</ChildContent>
+	</TemplateColumn>
+</QuickGrid>
+
+@code {
+
+	IEnumerable<Episode> TheEpisodes { get; set; } = Enumerable.Empty<Episode>();
+	IQueryable<Episode> TheList => TheEpisodes.AsQueryable();
+
+	protected override void OnInitialized()
+	{
+		TheEpisodes = Episodes.List;
+		base.OnInitialized();
+	}
+
+}
