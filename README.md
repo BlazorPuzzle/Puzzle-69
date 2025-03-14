@@ -1,7 +1,7 @@
 # Puzzle-69 - A QuickGrid of All Sorts
 The Blazor QuickGrid let's you set up tabular data for presentation, and it also has a sorting feature.  You'll want to review this puzzle to make sure you're getting the most from your QuickGrid sort experience
 
-YouTube Video: https://youtu.be/
+YouTube Video: https://youtu.be/r8-WjkvphX0
 
 Blazor Puzzle Home Page: https://blazorpuzzle.com
 
